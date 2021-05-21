@@ -6,6 +6,7 @@
 #include<Servo.h>
 Servo myservo;
 
+//defining the inputs and outputs
 #define ENA 5
 #define ENB 6
 #define IN1 7
@@ -22,6 +23,7 @@ int Trig = A5;
 int distance=0;
 int find_line=0;
 
+//function to move forward
 void forward()
 {
   analogWrite(ENA, carSpeed);
@@ -33,6 +35,7 @@ void forward()
   Serial.println("go forward!");
 }
 
+//function to move backwards
 void back()
 {
   analogWrite(ENA, carSpeed);
@@ -44,6 +47,7 @@ void back()
   Serial.println("go back!");
 }
 
+//function to turn left
 void left()
 {
   analogWrite(ENA, turnspeed);
@@ -55,6 +59,7 @@ void left()
   Serial.println("go left!");
 }
 
+//function to turn right
 void right()
 {
   analogWrite(ENA, turnspeed);
@@ -73,6 +78,7 @@ void stop()
    Serial.println("Stop!");
 } 
 
+//function to measure the distance
 int find_distance()
 {
   digitalWrite(Trig, LOW);
@@ -94,6 +100,7 @@ void setup()
   pinMode(Trig, OUTPUT);
 }
 
+//the function that determines what to do in any situation
 void loop() 
 {
   myservo.write(90);
